@@ -40,7 +40,7 @@ def predict(theta, X):
 
 #----------------------------------------- Code Start here ------------------------------------------------
 # load data from file. here data consist of two features and the label.
-data=np.genfromtxt("/home/waleed/PROJECTs/ML/DataSets/Ng_data/ex2data1.txt",
+data=np.genfromtxt("/directory/to/dataset",
                   delimiter=",") 
           
 
