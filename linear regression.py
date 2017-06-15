@@ -51,19 +51,19 @@ def gradientDescent(num_iterations,alpha,num_trainning,X,Y,theta):
    
    
    
-#----------------------------------------- Code Start here ------------------------------------------------
+#----------------------------------------- Code Starts here ------------------------------------------------
 # load data from file. here data consist of two features and the label.
 data=np.genfromtxt("/directory/to/dataset",
                   delimiter=",") 
       
-# this for controlling the packing process of data to get x and y.
+# this for controlling the unpacking process of data to get x and y.
 features_numbers=data.shape[1]-1
 label=data.shape[1]-1 # just for clarity
 
 # getting x and y , setting the algorithm values.          
 x=data[:,0:features_numbers]
 y=data[:,label]
-y=np.reshape(data[:,1],(y.shape[0],1))  # just for reshape the y to be (n,1) instead of (n,).
+y=np.reshape(data[:,1],(y.shape[0],1))  # just for reshaping the y to be (n,1) instead of (n,).
 m=y.size  # number of trainning set.
 theta=np.zeros((x.shape[1],1))  
 alpha=0.01 # learning rate
