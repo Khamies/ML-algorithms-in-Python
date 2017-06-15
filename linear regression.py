@@ -53,7 +53,7 @@ def gradientDescent(num_iterations,alpha,num_trainning,X,Y,theta):
    
 #----------------------------------------- Code Start here ------------------------------------------------
 # load data from file. here data consist of two features and the label.
-data=np.genfromtxt("/home/waleed/PROJECTs/ML/DataSets/Ng_data/ex1data2.txt",
+data=np.genfromtxt("/directory/to/dataset",
                   delimiter=",") 
       
 # this for controlling the packing process of data to get x and y.
@@ -67,23 +67,23 @@ y=np.reshape(data[:,1],(y.shape[0],1))  # just for reshape the y to be (n,1) ins
 m=y.size  # number of trainning set.
 theta=np.zeros((x.shape[1],1))  
 alpha=0.01 # learning rate
-iterations=50
+iterations=1000
 
 
 
- #normalize x
-
+#normalize x (features)
 mean_vector=np.zeros((x.shape[1],1))
 std_vector=np.zeros((x.shape[1],1))
-mean_vector[0,0]=np.mean(x[:,0])
 
-std_vector[0,0]=np.std(x[:,0])
-std_vector[1,0]=np.std(x[:,1])
+for i in range(features_numbers):
+    
+    mean_vector[i,0]=np.mean(x[:,i])
+    mean_vector[i,0]=np.mean(x[:,i])
 
+    std_vector[i,0]=np.std(x[:,i])
+    std_vector[i,0]=np.std(x[:,i])
 
-
-x[:,0]=(x[:,0]-mean_vector[0,0])/std_vector[0,0]
-x[:,1]=(x[:,1]-mean_vector[1,0])/std_vector[1,0]
+x=np.divide(np.subtract(x,mean_vector.T),std_vector.T)
 
 # --------------------------------------- Cost function --------------------------------------------------
 cost=costFunction(Hypothesis(x,theta),y,m)
